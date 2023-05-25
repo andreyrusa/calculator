@@ -7,6 +7,14 @@ public class OperationRequest {
     private BigDecimal operand1;
     private BigDecimal operand2;
 
+    public OperationRequest(BigDecimal operand1, BigDecimal operand2) {
+        this.operand1 = operand1;
+        this.operand2 = operand2;
+    }
+
+    public OperationRequest() {
+    }
+
     public BigDecimal getOperand1() {
         return operand1;
     }

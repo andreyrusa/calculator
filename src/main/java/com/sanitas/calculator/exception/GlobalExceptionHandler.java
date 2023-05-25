@@ -1,4 +1,4 @@
-package com.sanitas.calculator.controller;
+package com.sanitas.calculator.exception;
 
 import com.sanitas.calculator.exception.ErrorResponse;
 import com.sanitas.calculator.exception.NullOperandException;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class AdviceController {
+public class GlobalExceptionHandler {
 
     private final TracerImpl tracer = new TracerImpl();
 

@@ -1,13 +1,10 @@
 package com.sanitas.calculator.controller;
 
-import com.sanitas.calculator.exception.ErrorResponse;
-import com.sanitas.calculator.exception.NullOperandException;
 import com.sanitas.calculator.model.OperationRequest;
 import com.sanitas.calculator.model.OperationResponse;
 import com.sanitas.calculator.service.CalculatorService;
 import io.corp.calculator.TracerImpl;
 import io.swagger.v3.oas.annotations.Operation;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +12,7 @@ import java.math.BigDecimal;
 
 
 @RestController
-@RequestMapping("/api/calculate")
+@RequestMapping("/v1/api/calculate")
 public class CalculatorController {
 
     private final CalculatorService calculatorService;
