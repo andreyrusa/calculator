@@ -26,10 +26,9 @@ http://localhost:8080/swagger-ui/index.html
 
 
 ## Funcionalidades implementadas y alcance del servicio
-    El servicio expone dos endpoints para realizar sumas y restas de dos números:
+    El servicio expone un endpoint para realizar sumas y restas de dos números:
 
-    POST /v1/api/calculate/sum: Suma dos números. Acepta un cuerpo de solicitud JSON con dos campos, operand1 y operand2, que representan los números a sumar.
-    POST /v1/api/calculate/subtract: Resta dos números. Acepta un cuerpo de solicitud JSON con dos campos, operand1 y operand2, que representan los números a restar.
+    POST /v1/api/calculate/{operation}: Realiza la operacion indicada en {operation} dos números. Acepta un cuerpo de solicitud JSON con dos campos, operand1 y operand2, que representan los números a sumar.
     
     El servicio devuelve un objeto JSON con el resultado de la operación y los detalles de la misma. 
     En caso de error (por ejemplo, si se intenta realizar una operación no válida), el servicio devuelve un código de estado HTTP 501 junto con un mensaje de error descriptivo.
