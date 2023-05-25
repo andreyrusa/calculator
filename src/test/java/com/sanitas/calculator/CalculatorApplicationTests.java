@@ -63,4 +63,15 @@ class CalculatorApplicationTests {
 				.andExpect(jsonPath("$.status", is(HttpStatus.BAD_REQUEST.value())))
 				.andExpect(jsonPath("$.message", is("Operands cannot be null")));
 	}
+
+	@Test
+	public void testSumWithoutOperation() throws Exception {
+		OperationRequest request = new OperationRequest();
+		this.mockMvc.perform(post("/v1/api/calculate/mult")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(objectMapper.writeValueAsString(request)))
+				.andExpect(status().isNotImplemented())
+				.andExpect(jsonPath("$.status", is(HttpStatus.NOT_IMPLEMENTED.value())))
+				.andExpect(jsonPath("$.message", is("Invalid operation: mult")));
+	}
 }

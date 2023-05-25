@@ -1,5 +1,6 @@
 package com.sanitas.calculator.service;
 
+import com.sanitas.calculator.exception.InvalidOperationException;
 import com.sanitas.calculator.exception.NullOperandException;
 import com.sanitas.calculator.service.impl.SubtractOperation;
 import com.sanitas.calculator.service.impl.SumOperation;
@@ -25,7 +26,7 @@ public class CalculatorService {
     public BigDecimal calculate(String operationName, BigDecimal operand1, BigDecimal operand2) {
         Operation operation = operations.get(operationName);
         if (operation == null) {
-            throw new IllegalArgumentException("Invalid operation: " + operationName);
+            throw new InvalidOperationException("Invalid operation: " + operationName);
         } else if (operand1 == null || operand2 == null) {
             throw new NullOperandException("Operands cannot be null");
         }else return operation.execute(operand1, operand2);
