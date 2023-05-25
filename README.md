@@ -16,6 +16,12 @@
         -Spring Boot Starter Web: Para la creación de la aplicación web y la exposición de endpoints REST.
         -Spring Boot Starter Test y JUnit 5: Para las pruebas unitarias y de integración.
         -OpenAPI: Para la generación automática de la documentación de la API REST con el estándar de OpenAPI.
+            Se puede acceder en:
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
 ![img_1.png](img_1.png)
 
 
