@@ -61,6 +61,6 @@ class CalculatorApplicationTests {
 						.content(objectMapper.writeValueAsString(request)))
 				.andExpect(status().isBadRequest())
 				.andExpect(jsonPath("$.status", is(HttpStatus.BAD_REQUEST.value())))
-				.andExpect(jsonPath("$.message", is("Los operandos no pueden ser nulos")));
+				.andExpect(jsonPath("$.message", is("Operands cannot be null")));
 	}
 }

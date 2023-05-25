@@ -27,7 +27,7 @@ public class CalculatorService {
         if (operation == null) {
             throw new IllegalArgumentException("Invalid operation: " + operationName);
         } else if (operand1 == null || operand2 == null) {
-            throw new NullOperandException("Los operandos no pueden ser nulos");
+            throw new NullOperandException("Operands cannot be null");
         }else return operation.execute(operand1, operand2);
     }
 

@@ -1,10 +1,15 @@
 package com.sanitas.calculator.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.math.BigDecimal;
 
+@Schema(description = "Response to a calculation", example = "{\"operand1\": 5, \"operand2\": 3}")
 public class OperationRequest {
 
+    @Schema(description = "First operand", example = "5")
     private BigDecimal operand1;
+    @Schema(description = "Second operand", example = "5")
     private BigDecimal operand2;
 
     public OperationRequest(BigDecimal operand1, BigDecimal operand2) {
