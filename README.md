@@ -34,16 +34,16 @@ http://localhost:8080/swagger-ui/index.html
     En caso de error (por ejemplo, si se intenta realizar una operación no válida), el servicio devuelve un código de estado HTTP 501 junto con un mensaje de error descriptivo.
     
     En principio solo se implementan las operaciones de suma y resta. Se ha configurado el servicio de tal forma que se puede añadir más operaciones de forma fácil.
-    Para lograr esto se ha creado una interfaz que permite implementar clases específicas de cada Operación. Así, la interfaz Operacion solo define la operación a realizar con los dos campos de entrada de tipo BigDecimal. 
+    Para lograr esto se ha creado una interfaz que permite implementar clases específicas de cada Operación. Así, la interfaz Operacion solo define la operación a realizar con los dos campos de entrada de tipo BigDecimal y un indicador para el tipo de operacion. 
     Ya que solo se ha implementado la suma y resta, se han implementado las clases SubtractOperation y SumOperation que contienen la implementación necesaria para cada caso del método execute().
     
     Para futuros evolutivos se podrán añadir operación de la siguiente manera:
-        1. En el constructor de CalculatorService, añadir operations.put("operacion", new NuevaOperation());
-        2. "operacion" deberá coincidir con el endpoint de la nueva operación y "NuevaOperation()" será la clase que implementa la interfaz Operacion
+        1. Crear una nueva clase que implemente la interfaz Operacion, esto es, el respectivo metodo de calculo y el nombre de la operacion
     
 
-    En cuanto a la librería Tracer, se ha configurado en el pom.xml para realizar la carga en el repositorio local desde la carpeta /libs del proyecto utilizando mvn clean
-    Podemos utilizar el método trace() de dicha librería para lanzar trazas durante la ejecución del servicio. Se ha añadido para trazar la ejecución de los endpoint mostrando los campos que llegan y el resultado del cálculo. 
+    En cuanto a la librería Tracer, se ha configurado en el pom.xml para realizar la carga en el repositorio local desde la carpeta /libs del proyecto utilizando mvn clean.
+    Podemos utilizar el método trace() de dicha librería para lanzar trazas durante la ejecución del servicio. A nivel de configuración se ha creado un Bean con dicha libreria.
+    Se ha añadido para trazar la ejecución de los endpoint mostrando los campos que llegan y el resultado del cálculo. 
     Además, se lanzan trazas cuando se obtienen las diferentes excepciones.
     
     Se han codificado los test utilizando junit5. Para medir la cobertura de las pruebas se utiliza el conjunto de bibliotecas JaCoCo. 
