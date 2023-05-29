@@ -24,7 +24,7 @@ public class CalculatorServiceTest {
     private SubtractOperation subtractOperation;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         sumOperation = Mockito.mock(SumOperation.class);
         subtractOperation = Mockito.mock(SubtractOperation.class);
         when(sumOperation.getOperationName()).thenReturn("sum");
@@ -34,10 +34,10 @@ public class CalculatorServiceTest {
     }
 
     @Test
-    public void testCalculateSum() {
-        BigDecimal operand1 = new BigDecimal(5);
-        BigDecimal operand2 = new BigDecimal(3);
-        BigDecimal expected = new BigDecimal(8);
+    void testCalculateSum() {
+        BigDecimal operand1 = new BigDecimal("5");
+        BigDecimal operand2 = new BigDecimal("3");
+        BigDecimal expected = new BigDecimal("8");
 
         when(sumOperation.execute(any(), any())).thenReturn(expected);
 
@@ -47,10 +47,10 @@ public class CalculatorServiceTest {
     }
 
     @Test
-    public void testCalculateSubtract() {
-        BigDecimal operand1 = new BigDecimal(5);
-        BigDecimal operand2 = new BigDecimal(3);
-        BigDecimal expected = new BigDecimal(2);
+    void testCalculateSubtract() {
+        BigDecimal operand1 = new BigDecimal("5");
+        BigDecimal operand2 = new BigDecimal("3");
+        BigDecimal expected = new BigDecimal("2");
 
         when(subtractOperation.execute(any(), any())).thenReturn(expected);
 
@@ -60,19 +60,15 @@ public class CalculatorServiceTest {
     }
 
     @Test
-    public void testCalculateInvalidOperation() {
-        BigDecimal operand1 = new BigDecimal(5);
-        BigDecimal operand2 = new BigDecimal(3);
+    void testCalculateInvalidOperation() {
+        BigDecimal operand1 = new BigDecimal("5");
+        BigDecimal operand2 = new BigDecimal("3");
 
-        assertThrows(InvalidOperationException.class, () -> {
-            calculatorService.calculate("INVALID", operand1, operand2);
-        });
+        assertThrows(InvalidOperationException.class, () -> calculatorService.calculate("INVALID", operand1, operand2));
     }
 
     @Test
-    public void testCalculateNullOperands() {
-        assertThrows(NullOperandException.class, () -> {
-            calculatorService.calculate("sum", null, null);
-        });
+    void testCalculateNullOperands() {
+        assertThrows(NullOperandException.class, () -> calculatorService.calculate("sum", null, null));
     }
 }

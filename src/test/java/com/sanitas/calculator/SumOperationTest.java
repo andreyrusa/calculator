@@ -18,15 +18,15 @@ public class SumOperationTest {
     }
 
     @Test
-    public void testGetOperationName() {
+    void testGetOperationName() {
         assertEquals("sum", sumOperation.getOperationName());
     }
 
     @Test
-    public void testExecute() {
-        BigDecimal operand1 = new BigDecimal(5);
-        BigDecimal operand2 = new BigDecimal(3);
-        BigDecimal expected = new BigDecimal(8);
+    void testExecute() {
+        BigDecimal operand1 = new BigDecimal("5");
+        BigDecimal operand2 = new BigDecimal("3");
+        BigDecimal expected = new BigDecimal("8");
 
         BigDecimal result = sumOperation.execute(operand1, operand2);
 

@@ -10,35 +10,35 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class OperationResponseTest {
 
     @Test
-    public void testGetSetResult() {
+    void testGetSetResult() {
         BigDecimal value = new BigDecimal("7.0");
         OperationResponse response = new OperationResponse("sum", new BigDecimal("3.0"), new BigDecimal("4.0"), value);
         assertEquals(value, response.getResult());
     }
 
     @Test
-    public void testGetSetOperation() {
+    void testGetSetOperation() {
         String operation = "subtract";
         OperationResponse response = new OperationResponse(operation, new BigDecimal("5.0"), new BigDecimal("2.0"), new BigDecimal("3.0"));
         assertEquals(operation, response.getOperation());
     }
 
     @Test
-    public void testGetSetOperand1() {
+    void testGetSetOperand1() {
         BigDecimal value = new BigDecimal("3.0");
         OperationResponse response = new OperationResponse("sum", value, new BigDecimal("4.0"), new BigDecimal("7.0"));
         assertEquals(value, response.getOperand1());
     }
 
     @Test
-    public void testGetSetOperand2() {
+    void testGetSetOperand2() {
         BigDecimal value = new BigDecimal("2.0");
         OperationResponse response = new OperationResponse("subtract", new BigDecimal("5.0"), value, new BigDecimal("3.0"));
         assertEquals(value, response.getOperand2());
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         BigDecimal value1 = new BigDecimal("3.0");
         BigDecimal value2 = new BigDecimal("2.0");
         BigDecimal result = new BigDecimal("5.0");

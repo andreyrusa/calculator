@@ -1,7 +1,6 @@
 package com.sanitas.calculator.service.impl;
 
 import com.sanitas.calculator.service.Operation;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

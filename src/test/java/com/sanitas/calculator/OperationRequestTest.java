@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class OperationRequestTest {
 
     @Test
-    public void testGetSetOperand1() {
+    void testGetSetOperand1() {
         BigDecimal value = new BigDecimal("3.0");
         OperationRequest request = new OperationRequest();
         request.setOperand1(value);
@@ -18,7 +18,7 @@ public class OperationRequestTest {
     }
 
     @Test
-    public void testGetSetOperand2() {
+    void testGetSetOperand2() {
         BigDecimal value = new BigDecimal("2.0");
         OperationRequest request = new OperationRequest();
         request.setOperand2(value);
@@ -26,7 +26,7 @@ public class OperationRequestTest {
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         BigDecimal value1 = new BigDecimal("3.0");
         BigDecimal value2 = new BigDecimal("2.0");
         OperationRequest request = new OperationRequest(value1, value2);

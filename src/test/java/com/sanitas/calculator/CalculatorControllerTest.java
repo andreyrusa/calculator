@@ -31,29 +31,29 @@ class CalculatorControllerTest {
 
     @Test
     void testCalculateSum() {
-        when(calculatorService.calculate("sum", new BigDecimal(3), new BigDecimal(2)))
-                .thenReturn(new BigDecimal(5));
+        when(calculatorService.calculate("sum", new BigDecimal("3"), new BigDecimal("2")))
+                .thenReturn(new BigDecimal("5"));
 
-        ResponseEntity<OperationResponse> response = calculatorController.calculate("sum", new OperationRequest(new BigDecimal(3), new BigDecimal(2)));
+        ResponseEntity<OperationResponse> response = calculatorController.calculate("sum", new OperationRequest(new BigDecimal("3"), new BigDecimal("2")));
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(new BigDecimal(5), Objects.requireNonNull(response.getBody()).getResult());
+        assertEquals(new BigDecimal("5"), Objects.requireNonNull(response.getBody()).getResult());
 
-        verify(calculatorService, times(1)).calculate("sum", new BigDecimal(3), new BigDecimal(2));
+        verify(calculatorService, times(1)).calculate("sum", new BigDecimal("3"), new BigDecimal("2"));
         verify(tracer, times(2)).trace(anyString());
     }
 
     @Test
     void testCalculateSubstract() {
-        when(calculatorService.calculate("subtract", new BigDecimal(3), new BigDecimal(2)))
-                .thenReturn(new BigDecimal(1));
+        when(calculatorService.calculate("subtract", new BigDecimal("3"), new BigDecimal("2")))
+                .thenReturn(new BigDecimal("1"));
 
-        ResponseEntity<OperationResponse> response = calculatorController.calculate("subtract", new OperationRequest(new BigDecimal(3), new BigDecimal(2)));
+        ResponseEntity<OperationResponse> response = calculatorController.calculate("subtract", new OperationRequest(new BigDecimal("3"), new BigDecimal("2")));
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(new BigDecimal(1), Objects.requireNonNull(response.getBody()).getResult());
+        assertEquals(new BigDecimal("1"), Objects.requireNonNull(response.getBody()).getResult());
 
-        verify(calculatorService, times(1)).calculate("subtract", new BigDecimal(3), new BigDecimal(2));
+        verify(calculatorService, times(1)).calculate("subtract", new BigDecimal("3"), new BigDecimal("2"));
         verify(tracer, times(2)).trace(anyString());
     }
 
