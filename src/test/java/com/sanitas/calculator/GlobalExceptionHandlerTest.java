@@ -34,8 +34,8 @@ public class GlobalExceptionHandlerTest {
         ResponseEntity<ErrorResponse> responseEntity = handler.handleNullOperand(exception);
 
         verify(tracer).trace(Mockito.anyString());
-        assertNotNull(responseEntity.getBody());
         assertEquals(HttpStatus.BAD_REQUEST, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
         assertEquals("Null operand error", responseEntity.getBody().getMessage());
     }
 
@@ -46,8 +46,8 @@ public class GlobalExceptionHandlerTest {
         ResponseEntity<ErrorResponse> responseEntity = handler.handleInvalidOperationException(exception);
 
         verify(tracer).trace(Mockito.anyString());
-        assertNotNull(responseEntity.getBody());
         assertEquals(HttpStatus.NOT_IMPLEMENTED, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
         assertEquals("Invalid operation error", responseEntity.getBody().getMessage());
     }
 
@@ -58,8 +58,8 @@ public class GlobalExceptionHandlerTest {
         ResponseEntity<ErrorResponse> responseEntity = handler.handleNumberFormatException(exception);
 
         verify(tracer).trace(Mockito.anyString());
-        assertNotNull(responseEntity.getBody());
         assertEquals(HttpStatus.BAD_REQUEST, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
         assertEquals("Invalid operand: Number format error", responseEntity.getBody().getMessage());
     }
 
@@ -70,8 +70,8 @@ public class GlobalExceptionHandlerTest {
         ResponseEntity<ErrorResponse> responseEntity = handler.handleGenericException(exception);
 
         verify(tracer).trace(Mockito.anyString());
-        assertNotNull(responseEntity.getBody());
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
         assertEquals("An error occurred: Generic error", responseEntity.getBody().getMessage());
     }
 }

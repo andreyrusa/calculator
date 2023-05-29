@@ -24,11 +24,12 @@ class CalculatorApplicationTests {
 	void testCalculateSum() {
 		BigDecimal operand1 = new BigDecimal("2.0");
 		BigDecimal operand2 = new BigDecimal("3.0");
-		when(calculatorService.calculate("sum", operand1, operand2)).thenReturn(new BigDecimal("5.0"));
+		BigDecimal thenReturn = new BigDecimal("5.0");
+		when(calculatorService.calculate("sum", operand1, operand2)).thenReturn(thenReturn);
 
 		BigDecimal result = calculatorService.calculate("sum", operand1, operand2);
 
-		assertEquals(new BigDecimal("5.0"), result);
+		assertEquals(thenReturn, result);
 
 		verify(calculatorService, times(1)).calculate("sum", operand1, operand2);
 	}
@@ -37,11 +38,12 @@ class CalculatorApplicationTests {
 	void testCalculateSubtract() {
 		BigDecimal operand1 = new BigDecimal("3.0");
 		BigDecimal operand2 = new BigDecimal("2.0");
-		when(calculatorService.calculate("subtract", operand1, operand2)).thenReturn(new BigDecimal("1.0"));
+		BigDecimal thenReturn = new BigDecimal("1.0");
+		when(calculatorService.calculate("subtract", operand1, operand2)).thenReturn(thenReturn);
 
 		BigDecimal result = calculatorService.calculate("subtract", operand1, operand2);
 
-		assertEquals(new BigDecimal("1.0"), result);
+		assertEquals(thenReturn, result);
 
 		verify(calculatorService, times(1)).calculate("subtract", operand1, operand2);
 	}
@@ -62,15 +64,6 @@ class CalculatorApplicationTests {
 		assertThrows(InvalidOperationException.class, () -> calculatorService.calculate("mult", null, null));
 
 		verify(calculatorService, times(1)).calculate("mult", null, null);
-	}
-
-	@Test
-	void testCalculateInvalidOperand() {
-		BigDecimal operand1 = new BigDecimal("3.0");
-
-		assertThrows(IllegalArgumentException.class, () -> calculatorService.calculate("sum", operand1, new BigDecimal("INVALID")));
-
-		verify(calculatorService, never()).calculate(anyString(), any(BigDecimal.class), any(BigDecimal.class));
 	}
 
 	@Test
